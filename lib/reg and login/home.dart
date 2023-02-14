@@ -1,29 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../main.dart';
+import 'package:sharedpreferncee/reg%20and%20login/Login.dart';
 
-class MainPage extends StatelessWidget {
+
+class Home extends StatefulWidget{
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Shared Preference Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyDashboard(),
-    );
-  }
-}
-class MyDashboard extends StatefulWidget {
-  @override
-  _MyDashboardState createState() => _MyDashboardState();
+  State<Home> createState() => _HomeState();
 }
 
-class _MyDashboardState extends State<MyDashboard> {
-
+class _HomeState extends State<Home> {
   late SharedPreferences logindata;
-  late String username;
+
+  late String name;
 
   @override
   void initState() {
@@ -33,7 +23,7 @@ class _MyDashboardState extends State<MyDashboard> {
   void initial() async {
     logindata = await SharedPreferences.getInstance();
     setState(() {
-      username = logindata.getString('username')!;
+      name = logindata.getString('name')!;
     });
   }
 
@@ -50,7 +40,7 @@ class _MyDashboardState extends State<MyDashboard> {
           children: <Widget>[
             Center(
               child: Text(
-                'Hai $username Welcome To Luminar ',
+                'Hai $name Welcome To Luminar ',
                 style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ),
@@ -58,7 +48,7 @@ class _MyDashboardState extends State<MyDashboard> {
               onPressed: () {
                 logindata.setBool('newuser', true);
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => MyLoginPage()));
+                    MaterialPageRoute(builder: (context) => LoginPage()));
               },
               child: const Text('LogOut'),
             )
