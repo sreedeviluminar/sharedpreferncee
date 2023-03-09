@@ -12,7 +12,6 @@ class Home extends StatefulWidget{
 
 class _HomeState extends State<Home> {
   late SharedPreferences logindata;
-
   late String name;
 
   @override

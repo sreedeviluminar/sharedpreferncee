@@ -39,7 +39,6 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
   void check_if_already_login() async {
     logindata = await SharedPreferences.getInstance();
-
     newuser = (logindata.getBool('newuser') ?? true);  // null ?? second
     print(newuser);
 
