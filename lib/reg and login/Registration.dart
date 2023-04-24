@@ -9,7 +9,7 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
   // Create a text controller and use it to retrieve the current value
-  final name_controller = TextEditingController();
+  final name_controller     = TextEditingController();
   final username_controller = TextEditingController();
   final password_controller = TextEditingController();
   late SharedPreferences logindata;
@@ -81,7 +81,7 @@ class _RegistrationState extends State<Registration> {
   void registerr() async {
     logindata = await SharedPreferences.getInstance();
 
-    String name = name_controller.text;
+    String name     = name_controller.text;
     String username = username_controller.text;
     String password = password_controller.text;
 
@@ -90,8 +90,7 @@ class _RegistrationState extends State<Registration> {
       logindata.setString('username', username);
       logindata.setString('password', password);
 
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
 
     }
   }

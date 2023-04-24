@@ -109,6 +109,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ElevatedButton(
               onPressed: () {
+                debugPrint(uname);
+
                 String username = username_controller.text;
                 String password = password_controller.text;
 
